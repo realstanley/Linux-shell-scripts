@@ -1,0 +1,20 @@
+#!/bin/bash
+TYPE=$1
+OUT=$2
+DIR=`pwd`
+cd ${DIR}
+echo "saving log to  ${DIR}/..."
+echo ""
+if [ -z "${OUT}" ];then
+    echo "no filename"
+    exit 1
+fi
+
+if [ "${TYPE}" == "u" ];then
+    adb shell logcat -v threadtime |tee $2
+elif [ "${TYPE}" == "k" ];then
+    adb shell dmesg > $2
+else 
+    echo "no type"
+    exit 1
+fi
