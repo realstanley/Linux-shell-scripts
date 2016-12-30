@@ -12,3 +12,7 @@ do
 	adb push .${SOURCE} ${TO}
 	#echo "adb push .${SOURCE} ${SOURCE}"
 done < $1
+
+
+
+#alias mmi='mm 2>/dev/null |grep Install|tee mm.log'
